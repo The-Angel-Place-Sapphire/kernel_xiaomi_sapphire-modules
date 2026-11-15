@@ -1,0 +1,5 @@
+__crc_init_lct_tp_info = 0x424988b2;
+__crc_uninit_lct_tp_info = 0xce20b7b4;
+__crc_update_lct_tp_info = 0x840af637;
+__crc_set_lct_tp_info_callback = 0xe67ef420;
+__crc_set_lct_tp_lockdown_info_callback = 0x1cebb20a;

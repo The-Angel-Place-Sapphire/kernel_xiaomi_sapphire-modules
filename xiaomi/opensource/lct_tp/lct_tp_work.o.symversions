@@ -1,0 +1,4 @@
+__crc_init_lct_tp_work = 0xa6f2c748;
+__crc_uninit_lct_tp_work = 0x0158a2dc;
+__crc_set_lct_tp_work_status = 0x04fd32b1;
+__crc_get_lct_tp_work_status = 0x5f088deb;

@@ -1,0 +1,4 @@
+__crc_init_lct_tp_palm = 0x8ea2f4d0;
+__crc_uninit_lct_tp_palm = 0x93eff00d;
+__crc_set_lct_tp_palm_status = 0x6994c131;
+__crc_get_lct_tp_palm_status = 0xa654d1cd;

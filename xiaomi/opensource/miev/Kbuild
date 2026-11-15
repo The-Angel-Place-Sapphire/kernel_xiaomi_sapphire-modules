@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+# MIUI ADD: MiSight_LogEnhance
+# Xiaomi miev (MiCode piano-w-oss drivers/staging/miev), sapphire build.
+# the source uses C99 for-loop declarations (official tree is built as gnu11)
+ccflags-y += -std=gnu11 -I$(src)/include -DCONFIG_MIEV_MODULE=1
+obj-m += miev.o
+miev-y += midevice.o
+miev-y += mievent.o
+# END MiSight_LogEnhance

@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0
+# perf_helper (Performance_BoostFramework), sapphire build.
+# Base: MiCode zeus-s-oss drivers/misc/perf_helper.c + kswapd_pid/mimdtrigger
+# from MiCode bixi-v-oss drivers/misc/perf_helper/ (see perf_helper.c).
+obj-m += perf_helper.o

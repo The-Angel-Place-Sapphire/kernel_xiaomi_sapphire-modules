@@ -1,0 +1,4 @@
+__crc_init_lct_tp_gesture = 0x6d86a0d3;
+__crc_uninit_lct_tp_gesture = 0xb01efbd2;
+__crc_set_lct_tp_gesture_status = 0x8e4a0c40;
+__crc_get_lct_tp_gesture_status = 0x0f502b88;

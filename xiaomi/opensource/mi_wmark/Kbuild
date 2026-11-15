@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0
+# mi_wmark, sapphire build.
+# Source: MiCode Xiaomi_Kernel_OpenSource bixi-v-oss drivers/staging/mi-perf/mi_wmark
+obj-m += mi_wmark.o

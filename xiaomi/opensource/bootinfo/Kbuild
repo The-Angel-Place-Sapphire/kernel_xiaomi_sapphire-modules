@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0
+# Xiaomi bootinfo (MiCode sky-t-oss drivers/misc/bootinfo.c), sapphire build.
+ccflags-y += -I$(src)/include
+obj-m += bootinfo.o

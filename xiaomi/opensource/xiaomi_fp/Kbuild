@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0
+# Xiaomi FOD fingerprint glue (/dev/xiaomi-fp, netlink, uinput-xiaomi),
+# built as xiaomi_fp.ko like stock sapphire
+# (stock source path: msm-kernel/drivers/input/fingerprint/xiaomi_fp/).
+#
+# Imports panel_event_notifier_{register,unregister}; modpost resolves them
+# from the msm-kernel out/Module.symvers automatically.
+
+# Note: the two source paths in stock .rodata come from CFI/UBSan check
+# source locations, which clang 14 does not remap with any prefix map.
+STOCK_ROOT := /home/work/mnt/miui_codes1/build_home_rom-odm-merged/kernel_platform/msm-kernel
+ccflags-y += -fmacro-prefix-map=$(src)/=$(STOCK_ROOT)/drivers/input/fingerprint/xiaomi_fp/
+ccflags-y += -fmacro-prefix-map=$(srctree)/=$(STOCK_ROOT)/
+
+obj-m += xiaomi_fp.o
+xiaomi_fp-objs := fp_driver.o fp_netlink.o fp_platform.o

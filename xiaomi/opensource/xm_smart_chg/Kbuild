@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0
+# Xiaomi smart charging policy (stock sapphire xm_smart_chg.ko, vendor_dlkm)
+ccflags-y += -I$(src)/../miev/include -DCONFIG_MIEV_MODULE=1
+obj-m += xm_smart_chg.o

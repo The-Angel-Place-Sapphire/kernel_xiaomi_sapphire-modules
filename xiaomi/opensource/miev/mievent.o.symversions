@@ -1,0 +1,5 @@
+__crc_cdev_tevent_alloc = 0x04071551;
+__crc_cdev_tevent_add_int = 0x4adf70c8;
+__crc_cdev_tevent_add_str = 0x65d7dc25;
+__crc_cdev_tevent_write = 0x74b3b77c;
+__crc_cdev_tevent_destroy = 0x2efdafc8;

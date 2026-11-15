@@ -1,0 +1,4 @@
+__crc_init_lct_tp_grip_area = 0xd1c6bc46;
+__crc_uninit_lct_tp_grip_area = 0x2d183cba;
+__crc_set_tp_grip_area_angle = 0xcdb806e3;
+__crc_get_tp_grip_area_angle = 0xb4ae935f;

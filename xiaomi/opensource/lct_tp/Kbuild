@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-2.0
+# Longcheer touchpad helper nodes (/proc/tp_info, tp_lockdown_info, tp_work,
+# tp_selftest, tp_grip_area, tp_palm, tp_gesture), linked into one lct_tp.ko
+# like stock sapphire (vendor/qcom/opensource/touch-drivers/lct_tp).
+# Link order follows the stock .modinfo / .text order.
+
+ccflags-y += -DLCT_TP_COMBINED_MODULE
+
+obj-m += lct_tp.o
+lct_tp-objs := lct_tp_info.o \
+	       lct_tp_work.o \
+	       lct_tp_selftest.o \
+	       lct_tp_grip_area.o \
+	       lct_tp_palm.o \
+	       lct_tp_gesture.o

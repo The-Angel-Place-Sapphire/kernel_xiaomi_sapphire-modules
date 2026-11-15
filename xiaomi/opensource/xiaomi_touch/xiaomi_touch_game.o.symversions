@@ -1,0 +1,6 @@
+__crc_get_xiaomi_touch_class = 0xb413bea9;
+__crc_xiaomitouch_register_modedata = 0x6c018d35;
+__crc_update_palm_sensor_value = 0x49118811;
+__crc_update_fod_press_status = 0x17c892ac;
+__crc_xiaomi_touch_mievent_report_int = 0x68a8f310;
+__crc_xiaomi_touch_mievent_report_str = 0xf1e80282;

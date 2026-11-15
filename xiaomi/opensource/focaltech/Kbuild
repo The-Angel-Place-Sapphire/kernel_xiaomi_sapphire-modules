@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: GPL-2.0
+# FocalTech FT5452J ("ft3519t" module) touchscreen, built as
+# focaltech_ts_i2c.ko like stock sapphire
+# (stock source path: vendor/qcom/opensource/touch-drivers/fts_touch_i2c/).
+#
+# Imports from rebuilt/stock modules; build with
+#   KBUILD_EXTRA_SYMBOLS="<opensource>/lct_tp/Module.symvers
+#                         <opensource>/xiaomi_touch/Module.symvers
+#                         <this dir>/qpnp-smb5-stock.symvers"
+# panel_event_notifier resolves from the msm-kernel out/Module.symvers.
+
+STOCK_ROOT := /home/work/mnt/miui_codes1/build_home_rom-odm-merged/kernel_platform/msm-kernel
+ccflags-y += -fmacro-prefix-map=$(src)/=$(STOCK_ROOT)/../../vendor/qcom/opensource/touch-drivers/./fts_touch_i2c/
+ccflags-y += -I$(src)/../lct_tp -I$(src)/../xiaomi_touch -I$(src)/../xiaomi_touch/include
+# only for the miev prototypes pulled in by xiaomi_touch.h (no miev import)
+ccflags-y += -DCONFIG_MIEV_MODULE=1
+
+obj-m += focaltech_ts_i2c.o
+focaltech_ts_i2c-objs := focaltech_core.o \
+			 focaltech_ex_fun.o \
+			 focaltech_ex_mode.o \
+			 focaltech_gesture.o \
+			 focaltech_esdcheck.o \
+			 focaltech_point_report_check.o \
+			 focaltech_i2c.o \
+			 focaltech_flash.o \
+			 focaltech_flash/focaltech_upgrade_ft5452j.o \
+			 focaltech_test/focaltech_test.o \
+			 focaltech_test/focaltech_test_ini.o \
+			 focaltech_test/supported_ic/focaltech_test_ft5452.o

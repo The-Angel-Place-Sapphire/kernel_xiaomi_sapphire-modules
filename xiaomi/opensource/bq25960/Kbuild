@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: GPL-2.0
+# TI BQ25960 charge pump on the SouthChip sc8541 driver skeleton
+# (stock sapphire bq25960_charger.ko, vendor_dlkm)
+obj-m += bq25960_charger.o

@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: GPL-2.0
+# Xiaomi QC3.0 charge-pump policy (stock sapphire cp_qc30.ko, vendor_dlkm)
+obj-m += cp_qc30.o

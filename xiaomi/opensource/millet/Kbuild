@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0
+# Xiaomi millet (Power_ProcessFreeze) family, sapphire build.
+# Source: MiCode Xiaomi_Kernel_OpenSource dijun-v-oss
+#         xring-modules/drivers/mihw/millet/ (adapted to the older
+#         revision found in the stock sapphire 5.15 vendor_dlkm modules).
+obj-m += binder_gki.o
+obj-m += millet_core.o
+obj-m += millet_pkg.o
+obj-m += millet_hs.o
+obj-m += millet_binder.o
+obj-m += millet_sig.o
+obj-m += millet_oem_cgroup.o
+millet_oem_cgroup-y := oem_cgroup.o
+
+# binder_gki needs the GKI-private binder headers
+ccflags-y += -I$(srctree)/drivers/android
+# Note: the only source path in the stock .rodata is the CFI slowpath
+# diagnostic location (stock: /home/work/data/miui_codes/build_home_rom-odm-merged/
+# kernel_platform/msm-kernel/drivers/mihw/millet/<file>.c). clang 14 takes it
+# from the compiled file name, -f*-prefix-map does not rewrite it.

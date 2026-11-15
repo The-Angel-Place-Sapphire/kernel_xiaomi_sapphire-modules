@@ -1,0 +1,7 @@
+__crc_frozen_uid_min = 0xc33dbc8b;
+__crc_binder_warn_ahead_space = 0xebf1947e;
+__crc_millet_sendto_user = 0x95489121;
+__crc_millet_sendmsg = 0x60866a4c;
+__crc_register_millet_hook = 0x4e3451ba;
+__crc_unregister_millet_hook = 0xb929fd5b;
+__crc_init_millet_subsystem = 0x61857cae;

@@ -1,0 +1,5 @@
+0x529c2898	g_chg	vendor/qpnp-smb5-main	EXPORT_SYMBOL	
+0x16596ce5	qpnp_smb5_reg_notifier	vendor/qpnp-smb5-main	EXPORT_SYMBOL	
+0x924ce03f	qpnp_smb5_unreg_notifier	vendor/qpnp-smb5-main	EXPORT_SYMBOL	
+0x42fbe1c7	set_blank_status	vendor/qpnp-smb5-main	EXPORT_SYMBOL	
+0x95cdcf1d	set_fv_ageing	vendor/qpnp-smb5-main	EXPORT_SYMBOL	

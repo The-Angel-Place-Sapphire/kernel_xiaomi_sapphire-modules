@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0
+# binder_prio, sapphire build.
+# Template: ChicKernel device_xiaomi_gemstones-kernel drivers/staging/binder_prio,
+# hook bodies adapted to the stock sapphire binder_prio.ko.
+obj-m += binder_prio.o
+
+# GKI-private binder headers (struct binder_proc / binder_transaction / binder_node)
+ccflags-y += -I$(srctree)/drivers/android
