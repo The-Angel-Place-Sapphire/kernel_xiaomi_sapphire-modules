@@ -1,0 +1,8 @@
+__crc_aw87xxx_show_current_profile = 0x43855853;
+__crc_aw87xxx_get_prof_index = 0x6e34c3ef;
+__crc_aw87xxx_show_current_profile_index = 0x756d707c;
+__crc_aw87xxx_set_profile = 0xca21c90b;
+__crc_aw87xxx_set_profile_by_id = 0x2c09958b;
+__crc_aw87xxx_set_boost_voltage = 0x76e4d1f8;
+__crc_aw87xxx_get_boost_voltage = 0xb64aa05a;
+__crc_aw87xxx_add_codec_controls = 0xe2cdcff7;

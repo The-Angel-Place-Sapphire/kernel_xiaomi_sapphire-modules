@@ -1,0 +1,3 @@
+__crc_get_fsm_probe_complete_flag = 0x8efeec83;
+__crc_exfsm_i2c_probe = 0x4dd6d956;
+__crc_exfsm_i2c_remove = 0xca2efb17;

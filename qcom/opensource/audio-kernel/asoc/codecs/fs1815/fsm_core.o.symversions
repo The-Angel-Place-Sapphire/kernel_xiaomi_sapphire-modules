@@ -1,0 +1,7 @@
+__crc_fsm_get_config = 0x3870683e;
+__crc_fsm_add_codec_controls = 0xef7296e1;
+__crc_fsm_add_card_controls = 0x960495bc;
+__crc_fsm_speaker_onn = 0x0884adf0;
+__crc_fsm_speaker_off = 0xb44b3a4b;
+__crc_fsm_amp_switch = 0xce73773c;
+__crc_fsm_amp_set_scene = 0xe665c81e;
