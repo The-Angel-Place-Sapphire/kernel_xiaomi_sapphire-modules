@@ -19,7 +19,7 @@ endif
 
 ifeq ($(TARGET_SUPPORT), sa525m)
 	include $(AUDIO_ROOT)/config/sa525mauto.conf
-	export
+	export $(filter CONFIG_%,$(.VARIABLES))
 	INCS    +=  -include $(AUDIO_ROOT)/config/sa525mautoconf.h
 endif
 
@@ -45,28 +45,28 @@ ifeq ($(KERNEL_BUILD), 0)
 	ifeq ($(CONFIG_ARCH_SM8150), y)
 		ifdef CONFIG_SND_SOC_SA8155
 			include $(AUDIO_ROOT)/config/sa8155auto.conf
-			export
+			export $(filter CONFIG_%,$(.VARIABLES))
 			INCS    +=  -include $(AUDIO_ROOT)/config/sa8155autoconf.h
 		else
 			include $(AUDIO_ROOT)/config/sm8150auto.conf
-			export
+			export $(filter CONFIG_%,$(.VARIABLES))
 			INCS    +=  -include $(AUDIO_ROOT)/config/sm8150autoconf.h
 		endif
 	endif
 	ifeq ($(CONFIG_ARCH_SM6150), y)
 		ifdef CONFIG_SND_SOC_SA6155
 			include $(AUDIO_ROOT)/config/sa6155auto.conf
-			export
+			export $(filter CONFIG_%,$(.VARIABLES))
 			INCS    +=  -include $(AUDIO_ROOT)/config/sa6155autoconf.h
 		else
 			include $(AUDIO_ROOT)/config/sm6150auto.conf
-			export
+			export $(filter CONFIG_%,$(.VARIABLES))
 			INCS    +=  -include $(AUDIO_ROOT)/config/sm6150autoconf.h
 		endif
 	endif
 	ifeq ($(CONFIG_ARCH_TRINKET), y)
 		include $(AUDIO_ROOT)/config/sm6150auto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/sm6150autoconf.h
 	endif
 	ifeq ($(CONFIG_ARCH_KONA), y)
@@ -83,12 +83,12 @@ ifeq ($(KERNEL_BUILD), 0)
 	endif
 	ifeq ($(CONFIG_ARCH_LITO), y)
 		include $(AUDIO_ROOT)/config/litoauto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/litoautoconf.h
 	endif
 	ifeq ($(CONFIG_ARCH_KHAJE), y)
 		include $(AUDIO_ROOT)/config/bengalauto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/bengalautoconf.h
 		ifeq ($(CONFIG_KERNEL_CUSTOM_FACTORY), y)
 		INCS    +=  -include $(AUDIO_ROOT)/config/factoryaudio.h
@@ -109,7 +109,7 @@ ifeq ($(KERNEL_BUILD), 0)
 	endif
 	ifeq ($(CONFIG_ARCH_QCS405), y)
 		include $(AUDIO_ROOT)/config/qcs405auto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/qcs405autoconf.h
 	endif
 	ifeq ($(CONFIG_QTI_QUIN_GVM), y)
@@ -118,17 +118,17 @@ ifeq ($(KERNEL_BUILD), 0)
 	endif
 	ifeq ($(CONFIG_ARCH_SDXLEMUR), y)
 		include $(AUDIO_ROOT)/config/sdxlemurauto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/sdxlemurautoconf.h
 	endif
 	ifeq ($(CONFIG_ARCH_SDXPINN), y)
 		include $(AUDIO_ROOT)/config/sdxpinnauto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/sdxpinnautoconf.h
 	endif
 	ifeq ($(CONFIG_ARCH_SDXBAAGHA), y)
 		include $(AUDIO_ROOT)/config/sdxbaaghaauto.conf
-		export
+		export $(filter CONFIG_%,$(.VARIABLES))
 		INCS    +=  -include $(AUDIO_ROOT)/config/sdxbaaghaautoconf.h
 	endif
 endif
