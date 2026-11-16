@@ -2,4 +2,7 @@ include $(MMRM_ROOT)/config/waipiommrm.conf
 LINUXINCLUDE += -include $(MMRM_ROOT)/config/waipiommrmconf.h
 
 obj-m += driver/
+# test/ is a separate project in the Qualcomm LA tree, build it only if present
+ifneq ($(wildcard $(MMRM_ROOT)/test/Kbuild),)
 obj-m += test/
+endif
