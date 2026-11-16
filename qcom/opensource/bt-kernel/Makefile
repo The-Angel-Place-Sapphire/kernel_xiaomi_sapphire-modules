@@ -17,3 +17,11 @@ modules_install:
 
 clean:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) clean
+
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+KBUILD_OPTIONS += BT_ROOT=$(KERNEL_SRC)/$(M)
+KBUILD_OPTIONS += BT_KERNEL_ROOT=$(KERNEL_SRC)/$(M)
+KBUILD_OPTIONS += CONFIG_MSM_BT_POWER=m
+KBUILD_OPTIONS += CONFIG_BTFM_SLIM=m
+KBUILD_OPTIONS += CONFIG_I2C_RTC6226_QCA=m
+KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS="$(OUT_DIR)/../sapphire-modules/qcom/opensource/wlan/platform/Module.symvers"

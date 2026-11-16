@@ -48,3 +48,7 @@ modules_install:
 
 clean:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) clean
+
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+KBUILD_OPTIONS += RMNET_CORE_ROOT=$(KERNEL_SRC)/$(M)
+KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS="$(OUT_DIR)/../sapphire-modules/qcom/opensource/dataipa/drivers/platform/msm/Module.symvers"

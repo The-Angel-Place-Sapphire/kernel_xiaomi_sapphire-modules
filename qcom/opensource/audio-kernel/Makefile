@@ -70,3 +70,7 @@ clean:
 %:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) $@ $(KBUILD_OPTIONS)
 endif
+
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+KBUILD_OPTIONS += AUDIO_ROOT=$(KERNEL_SRC)/$(M)
+KBUILD_OPTIONS += MODNAME=audio_dlkm

@@ -10,3 +10,6 @@ clean:
 
 %:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) $(INC) $@ $(KBUILD_OPTIONS)
+
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+KBUILD_OPTIONS += CONFIG_DSQB=y

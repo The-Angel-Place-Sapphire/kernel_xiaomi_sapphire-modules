@@ -15,3 +15,6 @@ clean:
 
 %:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) $@ $(KBUILD_OPTIONS)
+
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+KBUILD_OPTIONS += MODNAME=msm_kgsl

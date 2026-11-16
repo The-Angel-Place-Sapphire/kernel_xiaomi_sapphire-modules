@@ -1,3 +1,6 @@
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+WLAN_PLATFORM_ROOT := $(shell pwd)
+
 KERNEL_SRC ?= /lib/modules/$(shell uname -r)/build
 M ?= $(shell pwd)
 
@@ -36,3 +39,14 @@ modules_install:
 
 clean:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) clean
+
+# --- sapphire: LineageOS inline kernel build (TARGET_KERNEL_EXT_MODULES) ---
+KBUILD_OPTIONS += WLAN_PLATFORM_ROOT=$(WLAN_PLATFORM_ROOT)
+KBUILD_OPTIONS += CONFIG_CNSS_OUT_OF_TREE=y
+KBUILD_OPTIONS += CONFIG_ICNSS2=m
+KBUILD_OPTIONS += CONFIG_ICNSS2_QMI=y
+KBUILD_OPTIONS += CONFIG_CNSS_GENL=m
+KBUILD_OPTIONS += CONFIG_WCNSS_MEM_PRE_ALLOC=m
+KBUILD_OPTIONS += CONFIG_CNSS_UTILS=m
+KBUILD_OPTIONS += CONFIG_CNSS_QMI_SVC=m
+KBUILD_OPTIONS += KBUILD_EXTRA_SYMBOLS="$(OUT_DIR)/../sapphire-modules/qcom/opensource/securemsm-kernel/Module.symvers"
