@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 # Xiaomi smart charging policy (stock sapphire xm_smart_chg.ko, vendor_dlkm)
-ccflags-y += -I$(src)/../miev/include -DCONFIG_MIEV_MODULE=1
+ccflags-y += -I$(XM_SRC)/../miev/include -DCONFIG_MIEV_MODULE=1
 obj-m += xm_smart_chg.o

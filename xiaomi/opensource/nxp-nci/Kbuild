@@ -1,6 +1,9 @@
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 #Makefile for qti nfc drivers
 
-NFC_ROOT ?= $(src)
+NFC_ROOT ?= $(XM_SRC)
 
 include $(NFC_ROOT)/config/gki_nfc.conf
 
@@ -12,7 +15,7 @@ LINUXINCLUDE   += -I$(NFC_ROOT)/../../../qcom/opensource/securemsm-kernel/smcinv
 LINUXINCLUDE   += -I$(NFC_ROOT)/../../../qcom/opensource/securemsm-kernel/linux/
 
 # stock sapphire path: vendor/nxp/opensource/driver
-ccflags-y += -fmacro-prefix-map=$(src)/=/home/work/mnt/miui_codes1/build_home_rom-odm-merged/kernel_platform/msm-kernel/../../vendor/nxp/opensource/driver/
+ccflags-y += -fmacro-prefix-map=$(XM_SRC)/=/home/work/mnt/miui_codes1/build_home_rom-odm-merged/kernel_platform/msm-kernel/../../vendor/nxp/opensource/driver/
 
 obj-$(CONFIG_NXP_NFC_I2C) += nxp-nci.o
 

@@ -1,9 +1,12 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 # Xiaomi swinfo (MiCode dada-v-oss drivers/xiaomi/swinfo), sapphire build.
 obj-m += swinfo.o
 swinfo-y := swinfo_func.o
 
 # config_platform_data.gz: the gzipped platform .config embedded in the stock
 # sapphire swinfo.ko (IKCFG_ST..IKCFG_ED), extracted byte-exact from it.
-ccflags-y += -DSWINFO_PLATFORM_CONFIG_GZ='"$(src)/config_platform_data.gz"'
-$(obj)/swinfo_func.o: $(src)/config_platform_data.gz
+ccflags-y += -DSWINFO_PLATFORM_CONFIG_GZ='"$(XM_SRC)/config_platform_data.gz"'
+$(obj)/swinfo_func.o: $(XM_SRC)/config_platform_data.gz

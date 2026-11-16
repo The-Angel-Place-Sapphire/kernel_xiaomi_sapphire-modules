@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 #
 # Xiaomi battery authentication chain for sapphire (stock path:
 # drivers/power/supply/battery_secret/).  Sources: Huaqin battery_secrete
@@ -35,11 +38,11 @@ ds28e30_verify-y += \
 	ds28e30lib/ucl_sia256.o	\
 	ds28e30lib/ucl_sys.o
 
-$(foreach o,$(ds28e30_verify-y),$(eval CFLAGS_$(o) += -I$(src)/ds28e30lib))
-$(foreach o,$(ds28e30_verify-y),$(eval CFLAGS_$(o) += -fmacro-prefix-map=$(src)/=drivers/power/supply/battery_secret/))
+$(foreach o,$(ds28e30_verify-y),$(eval CFLAGS_$(o) += -I$(XM_SRC)/ds28e30lib))
+$(foreach o,$(ds28e30_verify-y),$(eval CFLAGS_$(o) += -fmacro-prefix-map=$(XM_SRC)/=drivers/power/supply/battery_secret/))
 
 # ---- stick_verify.ko ----
-include $(src)/stick.mk
+include $(XM_SRC)/stick.mk
 
 # ---- slg_verify.ko ----
 obj-m += slg_verify.o

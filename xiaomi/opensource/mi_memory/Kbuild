@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 #
 # Makefile for mi memory info
 # (MiCode sky-t-oss drivers/misc/mi-memory, sapphire / GKI 5.15 build)
@@ -15,7 +18,7 @@ mi_memory-y += mem_interface.o
 # GKI UFS core headers (ufshcd.h, ufs.h, ufs-qcom.h)
 ccflags-y += -I$(srctree)/drivers/scsi/ufs
 # stock __FILE__ of the BUG_ON() in mi_ufshcd.h
-ccflags-y += -fmacro-prefix-map=$(src)/=drivers/misc/mi-memory/../../scsi/mi_ufs/
+ccflags-y += -fmacro-prefix-map=$(XM_SRC)/=drivers/misc/mi-memory/../../scsi/mi_ufs/
 
 # get_ufs_data() is exported by the Xiaomi ufs_qcom.ko (stock CRC)
 # get_ufs_data now comes from our ufs_qcom (msm-kernel out/Module.symvers)

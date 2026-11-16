@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 # FocalTech FT5452J ("ft3519t" module) touchscreen, built as
 # focaltech_ts_i2c.ko like stock sapphire
 # (stock source path: vendor/qcom/opensource/touch-drivers/fts_touch_i2c/).
@@ -10,8 +13,8 @@
 # panel_event_notifier resolves from the msm-kernel out/Module.symvers.
 
 STOCK_ROOT := /home/work/mnt/miui_codes1/build_home_rom-odm-merged/kernel_platform/msm-kernel
-ccflags-y += -fmacro-prefix-map=$(src)/=$(STOCK_ROOT)/../../vendor/qcom/opensource/touch-drivers/./fts_touch_i2c/
-ccflags-y += -I$(src)/../lct_tp -I$(src)/../xiaomi_touch -I$(src)/../xiaomi_touch/include
+ccflags-y += -fmacro-prefix-map=$(XM_SRC)/=$(STOCK_ROOT)/../../vendor/qcom/opensource/touch-drivers/./fts_touch_i2c/
+ccflags-y += -I$(XM_SRC)/../lct_tp -I$(XM_SRC)/../xiaomi_touch -I$(XM_SRC)/../xiaomi_touch/include
 # only for the miev prototypes pulled in by xiaomi_touch.h (no miev import)
 ccflags-y += -DCONFIG_MIEV_MODULE=1
 

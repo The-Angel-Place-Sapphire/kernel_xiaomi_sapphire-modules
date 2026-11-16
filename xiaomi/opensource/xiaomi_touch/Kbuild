@@ -1,14 +1,17 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 # Xiaomi touch feature node (/dev/xiaomi-touch, /sys/class/touch/touch_dev),
 # built as xiaomi_touch_game.ko like stock sapphire
 # (vendor/qcom/opensource/touch-drivers/xiaomi/xiaomi_touch.c).
 #
 # Needs miev (cdev_tevent_*): build with
-#   KBUILD_EXTRA_SYMBOLS=$(src)/miev-stock.symvers
+#   KBUILD_EXTRA_SYMBOLS=$(XM_SRC)/miev-stock.symvers
 # (CRCs taken from the stock sapphire miev.ko) or with the Module.symvers of
 # the rebuilt miev module.
 
-ccflags-y += -I$(src)/include -DCONFIG_MIEV_MODULE=1
+ccflags-y += -I$(XM_SRC)/include -DCONFIG_MIEV_MODULE=1
 
 obj-m += xiaomi_touch_game.o
 xiaomi_touch_game-objs := xiaomi_touch.o

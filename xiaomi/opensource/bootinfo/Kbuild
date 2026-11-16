@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 # Xiaomi bootinfo (MiCode sky-t-oss drivers/misc/bootinfo.c), sapphire build.
-ccflags-y += -I$(src)/include
+ccflags-y += -I$(XM_SRC)/include
 obj-m += bootinfo.o

@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
+# $(src) is relative to the object tree when M= is a relative path
+# (LineageOS inline kernel build): use the absolute source directory
+XM_SRC := $(if $(filter /%,$(src)),$(src),$(srctree)/$(src))
 # Xiaomi FOD fingerprint glue (/dev/xiaomi-fp, netlink, uinput-xiaomi),
 # built as xiaomi_fp.ko like stock sapphire
 # (stock source path: msm-kernel/drivers/input/fingerprint/xiaomi_fp/).
@@ -9,7 +12,7 @@
 # Note: the two source paths in stock .rodata come from CFI/UBSan check
 # source locations, which clang 14 does not remap with any prefix map.
 STOCK_ROOT := /home/work/mnt/miui_codes1/build_home_rom-odm-merged/kernel_platform/msm-kernel
-ccflags-y += -fmacro-prefix-map=$(src)/=$(STOCK_ROOT)/drivers/input/fingerprint/xiaomi_fp/
+ccflags-y += -fmacro-prefix-map=$(XM_SRC)/=$(STOCK_ROOT)/drivers/input/fingerprint/xiaomi_fp/
 ccflags-y += -fmacro-prefix-map=$(srctree)/=$(STOCK_ROOT)/
 
 obj-m += xiaomi_fp.o
