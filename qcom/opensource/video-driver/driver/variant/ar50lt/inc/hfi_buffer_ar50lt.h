@@ -19,10 +19,14 @@ typedef u64 HFI_U64;
 typedef u32 HFI_BOOL;
 
 #ifndef MIN
+/* the kernel defines MIN/MAX too: include it first so the local ones below win */
+#include <linux/minmax.h>
+#undef MIN
 #define  MIN(x, y) (((x) < (y)) ? (x) : (y))
 #endif
 
 #ifndef MAX
+#undef MAX
 #define  MAX(x, y) (((x) > (y)) ? (x) : (y))
 #endif
 

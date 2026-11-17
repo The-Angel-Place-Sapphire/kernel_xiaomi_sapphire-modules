@@ -714,6 +714,7 @@ static int pktlog_release(struct inode *i, struct file *f)
 }
 
 #ifndef MIN
+#undef MIN
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
